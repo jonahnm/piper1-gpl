@@ -71,6 +71,7 @@ setup(
         ],
         "http": [
             "flask>=3,<4",
+            "flask-cors==6.0.1"
         ],
     },
     packages=["piper", "piper.tashkeel", "piper.train"],
