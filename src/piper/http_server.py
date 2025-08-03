@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 from urllib.request import urlopen
 
 from flask import Flask, request
-
+from flask_cors import CORS
 from . import PiperVoice, SynthesisConfig
 from .download_voices import VOICES_JSON, download_voice
 
@@ -102,7 +102,7 @@ def main() -> None:
 
     # Create web server
     app = Flask(__name__)
-
+    CORS(app)
     @app.route("/voices", methods=["GET"])
     def app_voices() -> Dict[str, Any]:
         """List downloaded voices.
@@ -169,7 +169,7 @@ def main() -> None:
         download_voice(model_id, download_dir, force_redownload=force_redownload)
 
         return model_id
-
+from flask_cors import CORS
     @app.route("/", methods=["POST"])
     def app_synthesize() -> bytes:
         """Synthesize audio from text.
@@ -232,7 +232,7 @@ def main() -> None:
                     (
                         args.length_scale
                         if args.length_scale is not None
-                        else voice.config.length_scale
+                        else voice.config.length_scafrom flask_cors import CORSle
                     ),
                 )
             ),
