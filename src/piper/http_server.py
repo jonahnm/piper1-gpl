@@ -169,7 +169,6 @@ def main() -> None:
         download_voice(model_id, download_dir, force_redownload=force_redownload)
 
         return model_id
-from flask_cors import CORS
     @app.route("/", methods=["POST"])
     def app_synthesize() -> bytes:
         """Synthesize audio from text.
