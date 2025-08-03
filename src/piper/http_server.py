@@ -231,7 +231,7 @@ def main() -> None:
                     (
                         args.length_scale
                         if args.length_scale is not None
-                        else voice.config.length_scafrom flask_cors import CORSle
+                        else voice.config.length_scale
                     ),
                 )
             ),
